@@ -1,13 +1,20 @@
 class TripsController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: [:index, :show]
 
   def index
   end
 
   def new
+    @point = Point.new
   end
 
   def create
+    @point = Point.new(point_params)
+    if @point.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
