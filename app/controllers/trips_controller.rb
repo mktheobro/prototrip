@@ -19,5 +19,9 @@ class TripsController < ApplicationController
       redirect_to action: :index
     end
   end
-  
+
+  def point_params
+    params.require(:point).permit(:address, :image)
+  end
+
 end
