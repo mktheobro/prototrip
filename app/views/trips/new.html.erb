@@ -14,14 +14,14 @@
             <div class="weight-bold-text">
               住所
             </div>
-            <%= f.text_area :name, class:"maps-text", id:"maps-address", placeholder:"住所" %>
+            <%= f.text_area :address, class:"maps-text", id:"maps-address", placeholder:"住所" %>
         <%# /住所入力 %>
 
         <%# コメント入力 %>
               <div class="weight-bold-text">
                 おすすめポイント
               </div>
-              <%= f.text_area :info, class:"maps-text", id:"maps-comment", placeholder:"ポイントの説明（必須 1,000文字まで）訪れたポイントの見どころ、おすすめ商品、裏話などを書き込んでください" ,rows:"7" ,maxlength:"1000" %>
+              <%= f.text_area :point_comment, class:"maps-text", id:"maps-comment", placeholder:"ポイントの説明（必須 1,000文字まで）訪れたポイントの見どころ、おすすめ商品、裏話などを書き込んでください" ,rows:"7" ,maxlength:"1000" %>
         <%# /コメント入力 %>
 
         <%# 画像 %>
