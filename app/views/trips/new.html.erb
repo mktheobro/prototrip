@@ -10,33 +10,50 @@
   ここにデータ入力
     <div class="maps-main">
       <%= form_with model: @point, url: trips_path, method: :post, local: true do |f| %>
-        <%# 住所入力 %>
+        <%# 旅　タイトル入力 　詳細未定%>
             <div class="weight-bold-text">
-              住所
+              旅タイトル
             </div>
-            <%= f.text_area :address, class:"maps-text", id:"maps-address", placeholder:"住所" %>
-        <%# /住所入力 %>
+            <%= f.text_area :trip_title, class:"maps-text", id:"maps-address", placeholder:"旅タイトル" %>
+        <%# /旅　タイトル入力 　詳細未定 %>
 
-        <%# コメント入力 %>
+        <%# 旅　コメント入力 　詳細未定%>
+            <div class="weight-bold-text">
+              旅コメント
+            </div>
+            <%= f.text_area :trip_title, class:"maps-text", id:"maps-address", placeholder:"旅コメント" %>
+        <%# /旅　コメント入力 　詳細未定 %>
+
+
+        <div class="trip_point">
+          <%# 住所入力 %>
               <div class="weight-bold-text">
-                おすすめポイント
+                住所
               </div>
-              <%= f.text_area :point_comment, class:"maps-text", id:"maps-comment", placeholder:"ポイントの説明（必須 1,000文字まで）訪れたポイントの見どころ、おすすめ商品、裏話などを書き込んでください" ,rows:"7" ,maxlength:"1000" %>
-        <%# /コメント入力 %>
+              <%= f.text_area :address, class:"maps-text", id:"maps-address", placeholder:"住所" %>
+          <%# /住所入力 %>
 
-        <%# 画像 %>
-          <div class="img-upload">
-            <div class="weight-bold-text">
-              画像
+          <%# コメント入力 %>
+                <div class="weight-bold-text">
+                  おすすめポイント
+                </div>
+                <%= f.text_area :point_comment, class:"maps-text", id:"maps-comment", placeholder:"ポイントの説明（必須 1,000文字まで）訪れたポイントの見どころ、おすすめ商品、裏話などを書き込んでください" ,rows:"7" ,maxlength:"1000" %>
+          <%# /コメント入力 %>
+
+          <%# 画像 %>
+            <div class="img-upload">
+              <div class="weight-bold-text">
+                画像
+              </div>
+              <div class="click-upload">
+                <p>
+                  クリックしてファイルをアップロード
+                </p>
+                <%= f.file_field :image, id:"item-image" %>
+              </div>
             </div>
-            <div class="click-upload">
-              <p>
-                クリックしてファイルをアップロード
-              </p>
-              <%= f.file_field :image, id:"item-image" %>
-            </div>
-          </div>
-        <%# /出品画像 %>
+          <%# /出品画像 %>
+        </div>
 
         <%= f.submit '投稿する' %>
       <% end %>
