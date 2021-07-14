@@ -2,7 +2,7 @@
   <div class="left-side">
   ここに地図
   
-  <script src="https://maps.googleapis.com/maps/api/js?key=ここにAPIKEY&callback=initMap" async defer></script>
+  <%# <script src="https://maps.googleapis.com/maps/api/js?key=ここにAPIKEY&callback=initMap" async defer></script> %>
   </div>
 
 
@@ -10,19 +10,19 @@
   ここにデータ入力
     <div class="maps-main">
       <%= form_with model: @point, url: trips_path, method: :post, local: true do |f| %>
-        <%# 旅　タイトル入力 　詳細未定%>
+        <%# 旅 タイトル入力  詳細未定%>
             <div class="weight-bold-text">
               旅タイトル
             </div>
             <%= f.text_area :trip_title, class:"maps-text", id:"maps-address", placeholder:"旅タイトル" %>
-        <%# /旅　タイトル入力 　詳細未定 %>
+        <%# /旅 タイトル入力 詳細未定 %>
 
-        <%# 旅　コメント入力 　詳細未定%>
+        <%# 旅 コメント入力 詳細未定%>
             <div class="weight-bold-text">
               旅コメント
             </div>
             <%= f.text_area :trip_title, class:"maps-text", id:"maps-address", placeholder:"旅コメント" %>
-        <%# /旅　コメント入力 　詳細未定 %>
+        <%# /旅 コメント入力  詳細未定 %>
 
 
         <div class="trip_point">
@@ -49,14 +49,16 @@
                 <p>
                   クリックしてファイルをアップロード
                 </p>
-                <%= f.file_field :image, id:"item-image" %>
+                <%= f.file_field :images, id:"item-image" %>
               </div>
+              <div id="image-list"></div>
             </div>
-          <%# /出品画像 %>
+          <%# /画像 %>
         </div>
 
         <%= f.submit '投稿する' %>
       <% end %>
+      <%= image_tag @point.image, id: 'image' if @point.image.present? %> 
     </div>  
   </div>
 
