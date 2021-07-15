@@ -28,7 +28,7 @@ class TripsController < ApplicationController
   end
 
   def point_params
-    params.require(:point).permit(:address, :point_comment, :image)
+    params.require(:point).permit(:address, :point_comment, images: [])
   end
 
 end

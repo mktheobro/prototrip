@@ -49,7 +49,7 @@
                 <p>
                   クリックしてファイルをアップロード
                 </p>
-                <%= f.file_field :images, id:"item-image" %>
+                <%= f.file_field :images, name: 'message[images][]', id:"message_image" %>
               </div>
               <div id="image-list"></div>
             </div>
@@ -58,7 +58,10 @@
 
         <%= f.submit '投稿する' %>
       <% end %>
-      <%= image_tag @point.image, id: 'image' if @point.image.present? %> 
+      <%# <%= image_tag @point.image, id: 'image' if @point.image.present? %>
+      <% @point.images.each do |image| %>
+        <%= image_tag image, class: 'images' %>
+      <% end %>
     </div>  
   </div>
 
