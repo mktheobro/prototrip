@@ -3,14 +3,22 @@ class TripsPoint
   attr_accessor :trip_date, :trip_title, :trip_comment, :user_id, :address, :point_comment, :image,
                 :trip_id, :point_id
 
-  delegate :persisted?, to: :item
+  # delegate :persisted?, to: :item
 
-  # def initialize(attributes = nil, item: Item.new)
-  #   @item = item
-  #   attributes ||= default_attributes
-  #   super(attributes)
-  # end
+  def initialize(attributes = nil, trip: Trip.new)
+      @trip = trip
+      attributes ||= default_attributes
+      super(attributes)
+  end
 
+  # saveはとりあえず簡易的なものを使用
+  def save
+    # 旅行情報を保存し、変数tripに代入する
+    trip = Trip.create(trip_date: trip_date, trip_title: triptitle, trip_comment: tripcomment, user_id: user_id)
+    # 旅行先１を保存する
+    # donation_idには、変数donationのidと指定すると書いてあるのでtrip_idをとりあえず記述してみたが、そんなカラムは作っていないしおそらく不要
+    Point.create(address: address, point_comment: point_comment, trip_id: trip.id)
+  end
 
   # def save
   #    return if invalid?
