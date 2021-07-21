@@ -1,3 +1,5 @@
+# こっちはFormオブジェクト用のモデル
+
 class TripsPoint
   include ActiveModel::Model
   attr_accessor :trip_date, :trip_title, :trip_comment, :user_id, :address, :point_comment, :image,
