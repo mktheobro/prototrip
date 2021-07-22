@@ -2,15 +2,15 @@
 
 class TripsPoint
   include ActiveModel::Model
-  attr_accessor :trip_date, :trip_title, :trip_comment, :user_id, :address, :point_comment, :image,
+  attr_accessor :trip_date, :trip_title, :trip_comment, :user_id, :address, :point_comment, :images,
                 :trip_id, :point_id
 
   # delegate :persisted?, to: :item
 
   def initialize(attributes = nil, trip: Trip.new)
       @trip = trip
-      attributes ||= default_attributes
-      super(attributes)
+      # attributes ||= default_attributes
+      # super(attributes)
   end
 
   # saveはとりあえず簡易的なものを使用

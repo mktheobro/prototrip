@@ -9,7 +9,7 @@
   <div class="right-side">
   ここにデータ入力
     <div class="maps-main">
-      <%= form_with model: @point, url: trips_path, method: :post, local: true do |f| %>
+      <%= form_with model: @trip_point, url: trips_path, method: :post, local: true do |f| %>
         <%# 旅 タイトル入力  詳細未定%>
             <div class="weight-bold-text">
               旅タイトル
@@ -59,7 +59,17 @@
         <%= f.submit '投稿する' %>
       <% end %>
       <%# <%= image_tag @point.image, id: 'image' if @point.image.present? %>
+
+      <%# 単一のときはこれで複数画像保存ができていたが。。。フォームオブジェクトにimagesがないのが原因か
+      eachがおかしいと言われた→配列になっていないか
+      タグを複数検索したときのような特殊な記述が必要になりそう
+
+      単一保存の時
       <% @point.images.each do |image| %>
+        <%# <%= image_tag image, class: 'images' %>
+      <%# <% end %> 
+
+      <% @trip_point.images.each do |image| %>
         <%= image_tag image, class: 'images' %>
       <% end %>
     </div>  
